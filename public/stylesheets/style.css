@@ -9,56 +9,60 @@ a:hover {
   text-decoration: underline; }
 
 input#username-input {
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px; }
+  width: 100px;
+  display: inline-box;
+  margin: 0 10px; }
 
 button#connect-btn {
-  width: 100%; }
+  display: inline-box; }
 
 .title {
-  margin-top: 0; }
+  margin: 0 10px;
+  flex-shrink: 0; }
+
+.info-container {
+  display: flex;
+  margin-bottom: 30px; }
+
+.sockets {
+  margin: 0 10px;
+  flex-shrink: 0; }
+
+#connect-panel {
+  margin: 0 10px; }
 
 .layout {
   display: flex; }
 
-.info-container {
-  width: 20%;
-  min-width: 150px;
-  margin-right: 50px; }
-
 .editor-container {
   width: 80%; }
+
+.discussion {
+  width: 20%;
+  min-width: 150px;
+  margin-left: 50px; }
 
 #users-panel {
   display: none; }
 
 #users-panel ul {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
   padding: 0; }
 
 #users-panel ul > li {
   padding: 5px;
   border-radius: 5px;
   color: white;
-  margin-bottom: 10px; }
-
-#users-panel .user-name {
-  margin-bottom: 5px; }
-
-#users-panel .user-data {
-  display: flex;
-  flex-wrap: wrap; }
-
-#users-panel .user-data > div {
-  flex-grow: 1; }
+  margin: 5px; }
 
 .socket-indicator {
   height: 10px;
   width: 10px;
   display: inline-block;
-  margin-right: 5px;
+  margin: 0 5px;
   border-radius: 5px;
   vertical-align: baseline; }
 

@@ -5,6 +5,8 @@ var ReconnectingWebSocket = require('reconnectingwebsocket');
 var cursors = require('./cursors' );
 var utils = require('./utils');
 
+//require('quill.authorship');
+
 ShareDB.types.register(require('rich-text').type);
 
 var shareDBSocket = new ReconnectingWebSocket(((location.protocol === 'https:') ? 'wss' : 'ws') + '://' + window.location.host + '/sharedb');
@@ -29,7 +31,6 @@ var doc = shareDBConnection.get('documents', 'foobar');
 var cursorsModule = quill.getModule('cursors');
 
 doc.subscribe(function(err) {
-
   if (err) throw err;
 
   if (!doc.type)
@@ -148,32 +149,11 @@ function updateUserList() {
 
   cursors.connections.forEach(function(connection) {
     var userItemEl = document.createElement('li');
-    var userNameEl = document.createElement('div');
-    var userDataEl = document.createElement('div');
 
-    userNameEl.innerHTML = '<strong>' + (connection.name || '(Waiting for username...)') + '</strong>';
-    userNameEl.classList.add('user-name');
+    userItemEl.innerHTML = '<strong>' + (connection.name || '(Waiting for username...)') + '</strong>';
 
     if (connection.id == cursors.localConnection.id)
-      userNameEl.innerHTML += ' (You)';
-
-    if (connection.range) {
-
-      if (connection.id == cursors.localConnection.id)
-        connection.range = quill.getSelection();
-
-      userDataEl.innerHTML = [
-        '<div class="user-data">',
-        '  <div>Index: ' + connection.range.index + '</div>',
-        '  <div>Length: ' + connection.range.length + '</div>',
-        '</div>'
-      ].join('');
-    } else
-      userDataEl.innerHTML = '(Not focusing on editor.)';
-
-
-    userItemEl.appendChild(userNameEl);
-    userItemEl.appendChild(userDataEl);
+      userItemEl.innerHTML += ' (You)';
 
     userItemEl.style.backgroundColor = connection.color;
     usersListEl.appendChild(userItemEl);

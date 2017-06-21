@@ -1,53 +1,30 @@
 extends layout
 
 block content
+  .info-container
+    h1.title PeerDocument
+
+    p.sockets
+      strong ShareDB:
+      |  
+      span#sharedb-socket-indicator.socket-indicator
+      span#sharedb-socket-state.socket-state
+      br
+      strong Cursors:
+      |  
+      span#cursors-socket-indicator.socket-indicator
+      span#cursors-socket-state.socket-state
+
+    #connect-panel
+      form#username-form
+        | Choose your username and connect
+        input#username-input(type='text')
+        button#connect-btn Connect
+    #users-panel
+      ul#users-list
   .layout
-    .info-container
-      h1.title quill-sharedb-cursors
-      p
-        | An attempt at cursor sync in a collaborative editing scenario using 
-        a(href="https://quilljs.com") Quill
-        |  and 
-        a(href="https://github.com/share/sharedb") ShareDB
-        | .
-
-      p
-        | Built by 
-        a(href="https://github.com/pedrosanta") pedrosanta
-        |  at 
-        a(href="https://reedsy.com") Reedsy
-        | .
-
-      p
-        | Docs and discussion 
-        a(href="https://github.com/pedrosanta/quill-sharedb-cursors")
-          | at 
-          i.fa.fa-lg.fa-github-square
-          |  GitHub
-        | .
-
-      h3 Sockets
-      p
-        strong ShareDB:
-        |  
-        span#sharedb-socket-indicator.socket-indicator
-        span#sharedb-socket-state.socket-state
-      p
-        strong Cursors:
-        |  
-        span#cursors-socket-indicator.socket-indicator
-        span#cursors-socket-state.socket-state
-
-      #connect-panel
-        h3 Username
-        form#username-form
-          | Set your username and connect to edit:
-          br
-          input#username-input(type='text')
-          br
-          button#connect-btn Connect
-      #users-panel
-        h3 Users editing
-        ul#users-list
     .editor-container
+      #editor
+
+    .discussion
       #editor
