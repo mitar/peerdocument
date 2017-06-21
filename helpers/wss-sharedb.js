@@ -1,7 +1,7 @@
 var WebSocket = require('ws');
 var WebSocketJSONStream = require('websocket-json-stream');
 var shareDBServer = require('./sharedb-server');
-var debug = require('debug')('quill-sharedb-cursors:sharedb');
+var debug = require('debug')('peerdocument:sharedb');
 var uuid = require('uuid');
 
 module.exports = function(server) {

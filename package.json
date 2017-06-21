@@ -1,12 +1,11 @@
 {
-  "name": "quill-sharedb-cursors",
+  "name": "peerdocument",
   "version": "0.0.0",
   "private": true,
-  "author": "Pedro Machado Santa <pedro.santa@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedrosanta/quill-sharedb-cursors.git"
+    "url": "git+https://github.com/mitar/peerdocument.git"
   },
   "scripts": {
     "postinstall": "npm run build",
