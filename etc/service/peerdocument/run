@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+cd /peerdocument
+
+export DEBUG=peerdocument:*
+
+exec chpst -u peerdocument:peerdocument /usr/bin/node npm start 2>&1
