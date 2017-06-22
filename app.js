@@ -27,6 +27,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/quill/dist')));
 app.use(express.static(path.join(__dirname, 'node_modules/quill-cursors/dist')));
+app.use(express.static(path.join(__dirname, 'node_modules/quill-authorship')));
 
 app.use(require('./controllers'));
 

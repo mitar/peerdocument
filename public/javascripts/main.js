@@ -5,7 +5,7 @@ var ReconnectingWebSocket = require('reconnectingwebsocket');
 var cursors = require('./cursors' );
 var utils = require('./utils');
 
-//require('quill.authorship');
+require('quill-authorship');
 
 ShareDB.types.register(require('rich-text').type);
 
@@ -13,11 +13,25 @@ var shareDBSocket = new ReconnectingWebSocket(((location.protocol === 'https:') 
 
 var shareDBConnection = new ShareDB.Connection(shareDBSocket);
 
+var toolbarOptions = [
+  [{'header': [1, 2, 3, false]}],
+  ["bold", "italic", "underline", "link"],
+  [{'list': 'ordered'}, {'list': 'bullet'}],
+  ['clean'],
+  ['authorship-toggle']
+];
+
 var quill = window.quill = new Quill('#editor', {
   theme: 'snow',
   modules: {
+    toolbar: toolbarOptions,
     cursors: {
       autoRegisterListener: false
+    },
+    authorship: {
+      enabled: true,
+      authorId: Math.floor(Math.random() * 10e10),
+      color: cursors.localConnection.color
     },
     history: {
       userOnly: true
