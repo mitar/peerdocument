@@ -13,6 +13,7 @@ COPY . /peerdocument
 
 RUN cd /peerdocument && \
  npm install && \
+ npm run build && \
  chown -Rh peerdocument:peerdocument /peerdocument/public
 
 COPY ./etc /etc

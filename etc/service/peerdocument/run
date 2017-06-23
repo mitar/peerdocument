@@ -4,4 +4,4 @@ cd /peerdocument
 
 export DEBUG=peerdocument:*
 
-exec chpst -u peerdocument:peerdocument /usr/local/bin/node npm start 2>&1
+exec chpst -u peerdocument:peerdocument /usr/local/bin/npm start 2>&1
